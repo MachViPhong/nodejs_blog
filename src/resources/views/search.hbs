@@ -1,0 +1,30 @@
+<div class="search-form mt-5">
+  {{! method là phương thức nào
+  action là ở route nào, mặc định là route hiện tại }}
+  <form method="POST" action="">
+    <div class="mb-3 form-group">
+      <label for="seach-input" class="form-label">Nhập từ khoá</label>
+      {{! <input type="text" name="fullname">
+      <input type="text" name="age"> }}
+      <input
+        type="text"
+        name="q"
+        class="form-control"
+        id="seach-input"
+        {{! aria-describedby="emailHelp" }}
+        placeholder="Nhập từ khoá..."
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="gender-input" class="form-label">Nhập từ khoá</label>
+      {{! <input type="text" name="fullname">
+      <input type="text" name="age"> }}
+      <select name="gender" class="form-control" id="gender-input">
+        <option value="">---Chọn giới tính---</option>
+        <option value="male">Nam</option>
+        <option value="female">Nữ</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
+  </form>
+</div>
