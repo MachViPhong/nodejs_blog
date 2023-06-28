@@ -5,6 +5,8 @@ const {engine} = require ('express-handlebars');
 const app = express()
 const port = 3001
 
+const route = require('./routes');
+
 //STATIC FILE
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -23,30 +25,37 @@ app.engine('hbs', engine({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
-console.log('dirname',path.join(__dirname, 'resources/views'))
+// console.log('dirname',path.join(__dirname, 'resources/views'))
 
+//Routes theo MVC
+//Route init
+route(app);
 
-//Action ---> Dispatcher ---> Function handler
-app.get('/', (req, res) => {
+//Route k dùng mô hình MVC
+// //Action ---> Dispatcher ---> Function handler
+// app.get('/', (req, res) => {
 
-  // res.send('Hello World!')
-  res.render('home');
-});
-app.get('/news', (req, res) => {
+//   // res.send('Hello World!')
+//   res.render('home');
+// });
 
-  // res.send('Hello World!')
-  console.log('q: ', req.query.q)
-  res.render('news');
-});
-app.get('/search', (req, res) => {
-  // console.log('query:', req.query.q);
-  // res.send('Hello World!')
-  res.render('search');
-});
-app.post('/search', (req, res) => {
-  console.log('req.body:', req.body)
-  res.send(' ');
-});
+// app.get('/news', (req, res) => {
+
+//   // res.send('Hello World!')
+//   console.log('q: ', req.query.q)
+//   res.render('news');
+// });
+
+// app.get('/search', (req, res) => {
+//   // console.log('query:', req.query.q);
+//   // res.send('Hello World!')
+//   res.render('search');
+// });
+
+// app.post('/search', (req, res) => {
+//   console.log('req.body:', req.body)
+//   res.send(' ');
+// });
 
 
 //start 1 webserver lắng nghe port 
